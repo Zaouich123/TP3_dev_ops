@@ -24,7 +24,9 @@ describe("PokemonService", () => {
   describe("getPokemonList", () => {
     test("doit retourner une liste de pokemons à partir du client API", async () => {
       const mockPokemonList: Pokemon[] = [mockPokemon];
-      vi.spyOn(pokeApiClient, "getPokemonList").mockResolvedValue(mockPokemonList);
+      vi.spyOn(pokeApiClient, "getPokemonList").mockResolvedValue(
+        mockPokemonList,
+      );
 
       const result = await pokemonService.getPokemonList();
       expect(result).toEqual(mockPokemonList);

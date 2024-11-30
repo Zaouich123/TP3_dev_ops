@@ -36,8 +36,6 @@ export class PokemonService {
       return true;
     }
 
-
-
     team.push(pokemon);
     this.userTeams.set(userId, team);
     return true;
