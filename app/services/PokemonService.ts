@@ -26,15 +26,17 @@ export class PokemonService {
 
     const isPokemonInTeam = team.some((p) => p.id === pokemon.id);
 
+    if (team.length >= 6) {
+      return false;
+    }
+
     if (isPokemonInTeam) {
       team = team.filter((p) => p.id !== pokemon.id);
       this.userTeams.set(userId, team);
       return true;
     }
 
-    if (team.length >= 6) {
-      return false;
-    }
+
 
     team.push(pokemon);
     this.userTeams.set(userId, team);
